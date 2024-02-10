@@ -6,126 +6,158 @@
     <title>P3-Project</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-
-        /* Unique class name for navigation bar */
-        .custom-navbar-nav {
-         margin-right: auto; /* Aligns menu to the middle-left */
-        }
-        /* Unique class name for container */
-        .custom-container {
-         padding-top: 20px;
-        }
-        /* Unique class name for navigation bar positioning */
-        .custom-navbar {
-         position: fixed;
-         top: 30%;
-         transform: translateY(-50%);
+        /* Container styles */
+        body {
+            display: grid;
+            grid-template-columns: auto auto 1fr; /* Three columns: Project Title, Navbar, Content */
+            grid-template-rows: auto auto auto 1fr; /* Header, Marquee, Content */
+            height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Style for the clock */
-        #clock {
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
-          background-color: #fff;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 24px;
-          color: #333;
-          z-index: 1; /* Ensure clock is above other content */
-        }
-
-        /* Marquee style */
-        #marquee-container {
-          padding-top: 150px; /* Adjust vertical position */
-        }
-
-        /* Header style */
+        /* Header styles */
         #header {
-          text-align: center;
-          font-size: 32px;
-          font-family: 'Arial Narrow', sans-serif;
-          font-weight: normal;
-          color: red;
-          padding-top: 50px; /* Adjust vertical position */
+            grid-column: 1 / span 3; /* Spanning all three columns */
+            text-align: center;
+            font-size: 32px;
+            font-family: 'Arial Narrow', sans-serif;
+            font-weight: normal;
+            color: red;
+            padding-top: 50px;
+            padding-bottom: 20px;
         }
 
-        /* Calculator style */
+        /* Marquee styles */
+        #marquee-container {
+            grid-column: 1 / span 3; /* Spanning all three columns */
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        /* Navbar styles */
+        .custom-navbar {
+            grid-row: 3;
+            grid-column: 1; /* First column */
+            margin-right: auto; /* Aligns menu to the middle-left */
+            position: relative; /* Ensure the navbar stays within the grid */
+        }
+
+        /* Project title styles */
+        #project-title {
+            grid-row: 3;
+            grid-column: 2; /* Second column */
+            font-size: 24px;
+            font-family: 'Arial Narrow', sans-serif;
+            font-weight: bold;
+            padding: 20px;
+        }
+
+        /* Learning Journey Paragraph styles */
+        #learning-journey {
+            grid-row: 4; /* Place it in the fourth row */
+            grid-column: 2 / span 2; /* Spanning two columns */
+            font-size: 18px;
+            padding: 20px;
+        }
+
+        /* Clock styles */
+        #clock {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Calculator styles */
         .calculator-container {
-          position: fixed;
-          bottom: 250px;
-          left: 10px;
-          text-align: left;
-          background-color: #f0f0f0;
+            grid-row: 4;
+            grid-column: 1 / span 3; /* Spanning all three columns */
+            padding: 20px;
         }
-
-      </style>
+    </style>
 </head>
 <body>
 
-    <h4 id="header"> BCA Academy</h4>
+<!-- Header -->
+<h4 id="header"> BCA Academy</h4>
 
-   <!-- Marquee with scrolling text -->
+<!-- Marquee with scrolling text -->
 <div id="marquee-container">
-  <marquee behavior="scroll" direction="left" scrollamount="6" style="color: #333; font-size: 18px;">
-    Vision: To be a leader in education and research, for a future-ready built environment. Mission: To provide quality training, learning and research programmes for a future-ready built environment.
-  </marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="6" style="color: #333; font-size: 18px;">
+        To be a leader in education and research, for a future-ready built environment. Mission: To provide
+        quality training, learning and research programmes for a future-ready built environment.
+    </marquee>
 </div>
 
-  <!-- Navigation bar -->
-<div class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+<!-- Project Title -->
+<div id="project-title">Programming-3 Final Project</div>
+
+<!-- Learning Journey Paragraph -->
+<div id="learning-journey">
+    <p>In this subject, I learned the fundamentals of web development including HTML, CSS, and JavaScript. Through various projects and assignments, I gained hands-on experience in creating responsive and interactive web pages. Understanding the importance of user experience, accessibility, and cross-browser compatibility were key takeaways from this course. Additionally, I delved into topics such as DOM manipulation, event handling, and asynchronous programming in JavaScript. Overall, this subject provided me with a solid foundation in web development and ignited my passion for creating engaging online experiences.</p>
+</div>
+
+<!-- Navigation bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
     <a class="navbar-brand" href="#">Student Notes Menu</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mr-auto custom-navbar-nav">
-        <!-- Menu items dynamically generated based on the number of students -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Select Student
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <ul class="navbar-nav mr-auto custom-navbar-nav">
             <!-- Menu items dynamically generated based on the number of students -->
-            <a class="dropdown-item" href="#student1">Student 1</a>
-            <a class="dropdown-item" href="#student2">Student 2</a>
-            <a class="dropdown-item" href="#student3">Student 3</a>
-          </div>
-        </li>
-      </ul>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Student
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <!-- Menu items dynamically generated based on the number of students -->
+                    <a class="dropdown-item" href="#student1">Student 1</a>
+                    <a class="dropdown-item" href="#student2">Student 2</a>
+                    <a class="dropdown-item" href="#student3">Student 3</a>
+                </div>
+            </li>
+        </ul>
     </div>
-  </div>
-  
-  <!-- Student notes container -->
-  <div class="container custom-container">
+</nav>
+
+<!-- Student notes container -->
+<div class="container custom-container">
     <!-- Each student's notes section -->
     <div id="student1" style="display: none;">
-      <h2>Student 1 - HTML Notes</h2>
-      <p>This is the HTML notes written by Student 1.</p>
-      <p>Name: Student 1</p>
-      <a class="btn btn-primary" href="#">Return</a>
+        <h2>Student 1 - HTML Notes</h2>
+        <p>This is the HTML notes written by Student 1.</p>
+        <p>Name: Lo Zheng Kit Dyan</p>
+        <a class="btn btn-primary" href="#">Return</a>
     </div>
     <div id="student2" style="display: none;">
-      <h2>Student 2 - CSS Notes</h2>
-      <p>This is the CSS notes written by Student 2.</p>
-      <p>Name: Student 2</p>
-      <a class="btn btn-primary" href="#">Return</a>
+        <h2>Student 2 - CSS Notes</h2>
+        <p>This is the CSS notes written by Student 2.</p>
+        <p>Name: Khin Su Pyae Zaw</p>
+        <a class="btn btn-primary" href="#">Return</a>
     </div>
     <div id="student3" style="display: none;">
-      <h2>Student 3 - JavaScript Notes</h2>
-      <p>This is the JavaScript notes written by Student 3.</p>
-      <p>Name: Student 3</p>
-      <a class="btn btn-primary" href="#">Return</a>
+        <h2>Student 3 - JavaScript Notes</h2>
+        <p>This is the JavaScript notes written by Student 3.</p>
+        <p>Name: Akash Raj</p>
+        <a class="btn btn-primary" href="#">Return</a>
     </div>
-  </div>
-  
-  <!-- Calculator -->
-  <div class="calculator-container">
+</div>
+
+<!-- Calculator -->
+<div class="calculator-container">
     <input type="number" id="feeInput" placeholder="Enter school fees">
     <br>
     <input type="radio" id="sgd" name="currency" value="SGD" checked>
@@ -139,86 +171,87 @@
     <br>
     <button id="calculateBtn" class="btn btn-primary">Calculate</button>
     <p id="result"></p>
-  </div>
-  
-  <!-- Clock container -->
+</div>
+
+<!-- Clock container -->
 <div id="clock"></div>
 
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Script to show/hide notes based on menu selection -->
 <script>
-  // Function to update the clock
-  function updateClock() {
-    var now = new Date();
-    var hours = now.getHours();
-    var minutes = now.getMinutes();
-    var seconds = now.getSeconds();
+    $(document).ready(function () {
+        $('.dropdown-item').click(function () {
+            var target = $(this).attr('href');
+            $('.container div').hide();
+            $(target).show();
+            // Hide navigation bar
+            $('.navbar').hide();
+        });
 
-    // Pad single digit minutes and seconds with leading zeros
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
+        // Return button functionality
+        $('.btn-primary').click(function () {
+            $('.container div').hide();
+            // Show navigation bar
+            $('.navbar').show();
+        });
 
-    // Update the clock display
-    document.getElementById('clock').innerText = hours + ':' + minutes + ':' + seconds;
+        // Calculator button functionality
+        $('#calculateBtn').click(function () {
+            var feeInput = parseFloat(document.getElementById('feeInput').value);
+            var currency = document.querySelector('input[name="currency"]:checked').value;
+            var result;
 
-    // Update the clock every second
-    setTimeout(updateClock, 1000);
-  }
+            // Calculate based on currency
+            switch (currency) {
+                case 'SGD':
+                    result = feeInput * 1; // 1 SGD = 1 SGD
+                    break;
+                case 'MYR':
+                    result = feeInput * 3.06; // 1 SGD = 3.06 MYR (example conversion rate)
+                    break;
+                case 'MMK':
+                    result = feeInput * 498.34; // 1 SGD = 498.34 MMK (example conversion rate)
+                    break;
+                case 'CNY':
+                    result = feeInput * 4.88; // 1 SGD = 4.88 CNY (example conversion rate)
+                    break;
+                default:
+                    result = 'Invalid currency';
+            }
 
-  // Initial call to update the clock
-  updateClock();
-
-  // Calculator functionality
-  document.getElementById('calculateBtn').addEventListener('click', function() {
-    var feeInput = parseFloat(document.getElementById('feeInput').value);
-    var currency = document.querySelector('input[name="currency"]:checked').value;
-    var result;
-
-    // Calculate based on currency
-    switch (currency) {
-      case 'SGD':
-        result = feeInput * 1; // 1 SGD = 1 SGD
-        break;
-      case 'MYR':
-        result = feeInput * 3.06; // 1 SGD = 3.06 MYR (example conversion rate)
-        break;
-      case 'MMK':
-        result = feeInput * 498.34; // 1 SGD = 498.34 MMK (example conversion rate)
-        break;
-      case 'CNY':
-        result = feeInput * 4.88; // 1 SGD = 4.88 CNY (example conversion rate)
-        break;
-      default:
-        result = 'Invalid currency';
-    }
-
-    // Display result
-    document.getElementById('result').innerText = result + ' ' + currency;
-  });
+            // Display result
+            document.getElementById('result').innerText = result + ' ' + currency;
+        });
+    });
 </script>
 
-  <!-- jQuery and Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
-  <!-- Script to show/hide notes based on menu selection -->
-  <script>
-    $(document).ready(function(){
-      $('.dropdown-item').click(function(){
-        var target = $(this).attr('href');
-        $('.container div').hide();
-        $(target).show();
-        // Hide navigation bar
-        $('.navbar').hide();
-      });
-      
-      // Return button functionality
-      $('.btn-primary').click(function(){
-        $('.container div').hide();
-        // Show navigation bar
-        $('.navbar').show();
-      });
-    });
-  </script>
+<!-- Script to update the clock -->
+<script>
+    // Function to update the clock
+    function updateClock() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        // Pad single digit minutes and seconds with leading zeros
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        // Update the clock display
+        document.getElementById('clock').innerText = hours + ':' + minutes + ':' + seconds;
+
+        // Update the clock every second
+        setTimeout(updateClock, 1000);
+    }
+
+    // Initial call to update the clock
+    updateClock();
+</script>
 
 </body>
 </html>
