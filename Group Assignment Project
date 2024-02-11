@@ -9,7 +9,7 @@
         /* Container styles */
         body {
             display: grid;
-            grid-template-columns: auto auto 1fr; /* Three columns: Project Title, Navbar, Content */
+            grid-template-columns: auto auto auto; /* Three equal-width columns */
             grid-template-rows: auto auto auto 1fr; /* Header, Marquee, Content */
             height: 100vh;
             margin: 0;
@@ -37,7 +37,7 @@
 
         /* Navbar styles */
         .custom-navbar {
-            grid-row: 3;
+            grid-row: 3 span 2;
             grid-column: 1; /* First column */
             margin-right: auto; /* Aligns menu to the middle-left */
             position: relative; /* Ensure the navbar stays within the grid */
@@ -50,15 +50,40 @@
             font-size: 24px;
             font-family: 'Arial Narrow', sans-serif;
             font-weight: bold;
-            padding: 20px;
+            text-align: center;
         }
 
         /* Learning Journey Paragraph styles */
         #learning-journey {
             grid-row: 4; /* Place it in the fourth row */
-            grid-column: 2 / span 2; /* Spanning two columns */
+            grid-column: 2; /* Spanning two columns */
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* Introduction Video styles */
+        #introduction-video {
+            grid-row: 5; /* Place it in the fifth row */
+            grid-column: 2 ; /* Spanning two columns */
+            text-align: center;
+        }
+
+        /* acknowledgement message styles */
+        #acknowledgement-message {
+            grid-row: 6; /* Place it in the fourth row */
+            grid-column: 1 / span 3; 
             font-size: 18px;
             padding: 20px;
+            text-align: center;
+        }
+
+        /* BCA Academy Address styles */
+        #address {
+            grid-row: 3 / span 2; /* Place it in the third row */
+            grid-column: 3 ; /* Third column */
+            font-size: 18px;
+            text-align: center;
+            padding: 50px;
         }
 
         /* Clock styles */
@@ -80,10 +105,56 @@
 
         /* Calculator styles */
         .calculator-container {
-            grid-row: 4;
-            grid-column: 1 / span 3; /* Spanning all three columns */
+            grid-row: 5;
+            grid-column: 1; 
             padding: 20px;
         }
+
+        /* Resume Link styles */
+        #link {
+            grid-row: 5;
+            grid-column: 3;
+            padding: 20px;
+        }
+
+        /* Colored pattern box styles */
+        .pattern-box {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #FF5733, #FFC300);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            mix-blend-mode: multiply;
+        }
+
+        .pattern-1 {
+            background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+        }
+
+        .pattern-2 {
+            background: url('https://www.transparenttextures.com/patterns/binding-dark.png');
+        }
+
+        .pattern-3 {
+            background: url('https://www.transparenttextures.com/patterns/brick-wall-dark.png');
+        }
+
+        /* Text inside pattern box */
+        .pattern-text {
+            z-index: 1; /* Ensure text is above the pattern */
+            color: #fff; /* Text color */
+            font-size: 18px; /* Text size */
+            text-align: center; /* Center text horizontally */
+        }
+
     </style>
 </head>
 <body>
@@ -102,9 +173,44 @@
 <!-- Project Title -->
 <div id="project-title">Programming-3 Final Project</div>
 
+<!-- BCA Address -->
+<div id="address">200 Braddell Rd, BCA Braddell Campus, Singapore 579700</div>
+
 <!-- Learning Journey Paragraph -->
 <div id="learning-journey">
-    <p>In this subject, I learned the fundamentals of web development including HTML, CSS, and JavaScript. Through various projects and assignments, I gained hands-on experience in creating responsive and interactive web pages. Understanding the importance of user experience, accessibility, and cross-browser compatibility were key takeaways from this course. Additionally, I delved into topics such as DOM manipulation, event handling, and asynchronous programming in JavaScript. Overall, this subject provided me with a solid foundation in web development and ignited my passion for creating engaging online experiences.</p>
+    <p>In this subject, I learned the fundamentals of web development including HTML, CSS, and JavaScript. Through various projects 
+        and assignments, I gained hands-on experience in creating responsive and interactive web pages. Understanding the importance 
+        of user experience, accessibility, and cross-browser compatibility were key takeaways from this course. Additionally, I delved 
+        into topics such as DOM manipulation, event handling, and asynchronous programming in JavaScript. Overall, this subject provided 
+        me with a solid foundation in web development and ignited my passion for creating engaging online experiences.</p>
+</div>
+
+<!-- Introduction Video-->
+<div id="introduction-video">
+    <video width="1280" height="600" controls>
+        <source src="test.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<!-- Links to Resume-->
+<div id="link">
+    <ul>
+        <li><a href="Resume_LZKD (1).html">Lo Zheng Kit Dyan</a></li>
+        <li><a href="HTML_KSPZ_Resume (1).html">Khin Su Pyae Zaw</a></li>
+        <li><a href="Akash Raj_Resume.html">Akash Raj</a></li>
+        <!-- Add more members as needed -->
+    </ul>
+</div>
+
+<!-- Acknowledgement Message -->
+<div id="acknowledgement-message">
+    <div class="pattern-box">
+        <div class="pattern pattern-1"></div>
+        <div class="pattern pattern-2"></div>
+        <div class="pattern pattern-3"></div>
+        <p class="pattern-text">I would like to thank Mr Unni for providing us with the basics and fundamentals of web development including HTML, CSS, and JavaScript.</p>
+    </div>
 </div>
 
 <!-- Navigation bar -->
