@@ -187,8 +187,8 @@
 
 <!-- Introduction Video-->
 <div id="introduction-video">
-    <video width="1280" height="600" controls>
-        <source src="test.mp4" type="video/mp4">
+    <video width="1000" height="600" controls>
+        <source src="Introvideo Prog 3.MOV" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </div>
@@ -215,7 +215,7 @@
 
 <!-- Navigation bar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
-    <a class="navbar-brand" href="#">Student Notes Menu</a>
+    <a class="navbar-brand" href="#">Programming 3</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -226,13 +226,13 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select Student
+                    Select Note
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <!-- Menu items dynamically generated based on the number of students -->
-                    <a class="dropdown-item" href="#student1">Student 1</a>
-                    <a class="dropdown-item" href="#student2">Student 2</a>
-                    <a class="dropdown-item" href="#student3">Student 3</a>
+                    <a class="dropdown-item" href="#student1">HTML Notes</a>
+                    <a class="dropdown-item" href="#student2">CSS Notes</a>
+                    <a class="dropdown-item" href="#student3">JavaScript Notes</a>
                 </div>
             </li>
         </ul>
@@ -266,8 +266,6 @@
 <div class="calculator-container">
     <input type="number" id="feeInput" placeholder="Enter school fees">
     <br>
-    <input type="radio" id="sgd" name="currency" value="SGD" checked>
-    <label for="sgd">Singapore Dollar (SGD)</label> <br>
     <input type="radio" id="myr" name="currency" value="MYR">
     <label for="myr">Malaysian Ringgit (MYR)</label> <br>
     <input type="radio" id="mmk" name="currency" value="MMK">
